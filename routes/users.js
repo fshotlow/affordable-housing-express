@@ -3,7 +3,7 @@ const users = express.Router()
 const cors = require('cors')
 // const bcrypt = require('bcrypt')
 const bcrypt = require('bcrypt-nodejs')
-const User = require('../models/User')
+const User = require('../models/user')
 users.use(cors())
 
 /* GET USER home page. */
