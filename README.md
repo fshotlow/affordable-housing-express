@@ -1,0 +1,1 @@
+eb init --profile reactCodedeploy --platform node.js --region us-west-2
