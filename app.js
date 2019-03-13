@@ -3,14 +3,14 @@ var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var compression = require('compression');
-
+var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var compression = require('compression');
 var helmet = require('helmet');
 
 var app = express();
-
+app.use(cors()); 
 app.use(compression()); //Compress all routes
 app.use(helmet());
 
