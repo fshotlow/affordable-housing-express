@@ -3,13 +3,12 @@ const users = express.Router()
 const cors = require('cors')
 // const bcrypt = require('bcrypt')
 const bcrypt = require('bcrypt-nodejs')
-const User = require('../models/user')
-users.use(cors())
+const User = require('../models/User')
+// users.use(cors())
 
-/* GET USER home page. */
-users.get('/', function(req, res, next) {
-    res.send('Welcome to users');
-});
+users.get('/showall', (req, res) => {
+    User.findAll().then(users => res.json(users))
+})
 
 users.post('/register', (req, res) => {
     const today = new Date()
@@ -33,7 +32,9 @@ users.post('/register', (req, res) => {
                     userData.passwd = hash
                     User.create(userData)
                         .then (user => {
+                            res.json(user)
                             res.json({status: user.email + ' registered'})
+                            //console.log(user.email + ' registered')
                         })
                         .catch(err => {
                             res.send('error:' + err)
