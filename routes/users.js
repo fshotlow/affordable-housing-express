@@ -4,7 +4,6 @@ const cors = require('cors')
 // const bcrypt = require('bcrypt')
 const bcrypt = require('bcrypt-nodejs')
 const User = require('../models/User')
-// users.use(cors())
 
 users.get('/showall', (req, res) => {
     User.findAll().then(users => res.json(users))
